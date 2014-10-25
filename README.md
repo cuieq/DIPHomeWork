@@ -4,7 +4,7 @@ DIPHomeWork
 # 这是什么?
 
 数字图像处理作业程序实现，
-包含两个版本，其一时采用OpenCV 2.4.x运算库配合Python编写；
+包含两个版本，其一是采用OpenCV 2.4.x运算库配合Python编写；
 其二是在Visual Studio环境下采用OpenCV 2.4.x配合C++编写，
 并采用MFC控件增加了可视化程度．
 实现过程尽量避免使用比较高级的库函数, i.e. ,尽量从底层实现算法.
@@ -12,7 +12,7 @@ DIPHomeWork
 # 如何运行?
 
 ## Python版本
-流程:配置python+opencv->运行
+流程:1.配置python+opencv  ->  2.运行.
 ### 开发环境配置
 #### Python
 
