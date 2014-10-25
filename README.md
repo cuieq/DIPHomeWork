@@ -64,3 +64,5 @@ Note: 对环境变量配置不清楚的可以参考[Opencv 完美配置攻略](h
 
 ### 运行
 打开工程后点`F5`开始调试，或者使用无调试运行`Ctrl+F5`．
+
+![界面](https://github.com/OnceMore2020/DIPHomeWork/blob/master/CPP_MFC/mainwindow.PNG)
