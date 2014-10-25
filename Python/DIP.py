@@ -84,7 +84,7 @@ def HistEqualize(imgChannel):
     #　掩盖０元素
     histCumMask = ma.masked_equal(histCum,0)
     #　http://en.wikipedia.org/wiki/Histogram_equalization
-    histCumMask = (histCumMask - histCumMask.min())*255/(histCumMask.max()-histCumMask.min())#等同于前面介绍的lut[i] = int(255.0 *p[i])公式
+    histCumMask = (histCumMask - histCumMask.min())*255/(histCumMask.max()-histCumMask.min())
     #　将掩膜处理掉的元素补为0
     histCum = ma.filled(histCumMask,0).astype('uint8')
     result = histCum[imgChannel]
