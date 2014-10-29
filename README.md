@@ -65,7 +65,7 @@ libtiff目录里面有工程用到的头文件和库文件以及`*.dll`文件．
 把`libtiff/bin`下的所有文件拷贝到`OpenCV/build/x86/vc10/bin`里面(找`*dll`文件)．最后，在VS2013项目属性表里面
 的链接器输入附加依赖项里面添加一行`libtiff.lib`(已经配置好).
 
-以上配置在项目`*.vcxproj`文件里都是有对应体现的：
+以上配置在项目`*.vcxproj`文件里都是有对应体现的(加深理解到底上面几个配置是怎么起作用的)：
 
 `  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">`
 `   <LinkIncremental>true</LinkIncremental>`
