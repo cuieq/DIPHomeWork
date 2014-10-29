@@ -4,10 +4,11 @@ DIPHomeWork
 # 这是什么?
 
 数字图像处理作业程序实现，
-包含两个版本，其一是采用OpenCV 2.4.x运算库配合Python编写；
-其二是在Visual Studio环境下采用OpenCV 2.4.x配合C++编写，
+包含两个版本，其一是采用OpenCV 2.4.x运算库配合Python编写(在`Python`目录内．)；
+其二是在Visual Studio环境下采用OpenCV 2.4.x配合C++编写(在`CPP_MFC`目录内，)，
+`libtiff`文件夹包含了`libtiff`库，在这个项目文件里用于保存CMYK模式的图像．
 并采用MFC控件增加了可视化程度．
-实现过程尽量避免使用比较高级的库函数, i.e. ,尽量从底层实现算法.
+实现过程尽量避免使用比较高级的库函数, i.e. ,尽量从底层实现算法(大部分处理算法都封装进了`DIPalgorithms.cpp`内).
 
 # 如何运行?
 
@@ -19,6 +20,7 @@ DIPHomeWork
 首先需要安装python,这在一般的Linux发行版和Mac OS X上都是预装的，
 
 以Ubuntu为例：
+
 `sudo apt-get install python`
 
 在Windows下可以到[Python](https://www.python.org/)网站下载二进制安装包.
@@ -41,8 +43,10 @@ DIPHomeWork
 流程: 1.安装Visual Studio;  ->  2.配置OpenCV和libtiff;  ->  3.编译运行
 #### Visual Studio
 这个工程最初是在Visual Studio 2010下面创建的，后来迁移到了Visual Studio 2013以方便配合OpenCV针对
-Visual Studio开发环境发布的Image Watch插件，这个插件可以在调试的过程中可视化显示cv::Mat类局部变量．
+Visual Studio开发环境发布的[Image Watch](http://docs.opencv.org/doc/tutorials/introduction/windows_visual_studio_image_watch/windows_visual_studio_image_watch.html#windows-visual-studio-image-watch)插件，
+这个插件可以在调试的过程中可视化显示cv::Mat类局部变量．
 采用Visual Studio 2013打开解决方案是肯定不会出问题的,**但是使用VS2010打开会出问题**．
+主要原因是项目配置文件中有些片段是VS2013的.
 
 **建议使用2013版本**.
 
@@ -58,12 +62,13 @@ Note: 对环境变量配置不清楚的可以参考[Opencv 完美配置攻略](h
 #### libtiff 配置
 libtiff目录里面有工程用到的头文件和库文件以及`*.dll`文件．不用下载额外的libtiff库．
 
+阅读过上面两篇关于OpenCV配置的博文后，再来配置libtiff，原理都是一样的，
 需要完成**设置头文件路径**,**设置库文件路径**,**设置链接器输入附加依赖项**以及**环境变量**这４个步骤．
 
-一个比较简单的方法是把`libtiff/include`目录里面的所有文件拷贝到`OpenCV/build/include`目录
-下面(告诉编译器从这里面找**头文件**)，然后将`libtiff／lib`里的所有文件拷贝到`OpenCV/build/x86/vc10/lib`下面(找**库文件**)，然后
-把`libtiff/bin`下的所有文件拷贝到`OpenCV/build/x86/vc10/bin`里面(找`*dll`文件)．最后，在VS2013项目属性表里面
-的链接器输入附加依赖项里面添加一行`libtiff.lib`(已经配置好).
+一个比较简(cu)单(bao)的方法是把`libtiff/include`目录里面的所有文件拷贝到`OpenCV/build/include`目录下面
+(告诉编译器从这里面找**头文件**)，然后将`libtiff／lib`里的所有文件拷贝到`OpenCV/build/x86/vc10/lib`下面(找**库文件**)，
+然后把`libtiff/bin`下的所有文件拷贝到`OpenCV/build/x86/vc10/bin`里面(找`*dll`文件)．
+最后，在VS2013项目属性表里面的链接器输入附加依赖项里面添加一行`libtiff.lib`(已经配置好).
 
 以上配置在项目`*.vcxproj`文件里都是有对应体现的(加深理解到底上面几个配置是怎么起作用的)：
 
