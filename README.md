@@ -42,12 +42,9 @@ DIPHomeWork
 #### Visual Studio
 这个工程最初是在Visual Studio 2010下面创建的，后来迁移到了Visual Studio 2013以方便配合OpenCV针对
 Visual Studio开发环境发布的Image Watch插件，这个插件可以在调试的过程中可视化显示cv::Mat类局部变量．
-采用Visual Studio 2013打开解决方案是肯定不会出问题的，Visual Stuio 2010应该也不会出问题．
+采用Visual Studio 2013打开解决方案是肯定不会出问题的,**但是使用VS2010打开会出问题**．
 
-**PostScript:我为什么要用Visual Studio比较新的版本？**
-
-因为我之前没有使用VC++6.0的经历(或者说没有在Windows环境下写过可视化程序),
-所以不存在转移VS或VC版本的痛苦，也就果断选择了较新的版本．
+**建议使用2013版本**.
 
 #### OpenCV 配置
 可以参考[OpenCV在Windows的配置](http://user.qzone.qq.com/626691687/blog/1368530158)这篇文章,
