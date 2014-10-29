@@ -56,8 +56,26 @@ Note: 对环境变量配置不清楚的可以参考[Opencv 完美配置攻略](h
 使上面提到的三个配置变得一目了然．
 
 #### libtiff 配置
-首先下载[libtiff](ftp://ftp.remotesensing.org/pub/libtiff),我使用的是最新版本，配置思路和OpenCV的配置一样，
+libtiff目录里面有工程用到的头文件和库文件以及*.dll文件．
 需要完成**设置头文件路径**,**设置库文件路径**,**设置链接器输入附加依赖项**以及**环境变量**这４个步骤．
+
+一个比较简单的方法是把`libtiff/include`目录里面的所有文件拷贝到`OpenCV/build/include`目录
+下面(告诉编译器从这里面找**头文件**)，然后将`libtiff／lib`里的所有文件拷贝到`OpenCV/build/x86/vc10/lib`下面(找**库文件**)，然后
+把`libtiff/bin`下的所有文件拷贝到`OpenCV/build/x86/vc10/bin`里面(找`*dll`文件)．最后，在VS2013项目属性表里面
+的链接器输入附加依赖项里面添加一行`libtiff.lib`.
+
+以上配置在项目`*.vcxproj`文件里都是有对应体现的：
+
+`  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">`
+`   <LinkIncremental>true</LinkIncremental>`
+`    <IncludePath>C:\OpenCV\opencv\build\include;$(IncludePath)</IncludePath>`
+`    <LibraryPath>C:\OpenCV\opencv\build\x86\vc12\lib;$(LibraryPath)</LibraryPath>`
+`  </PropertyGroup>`
+`    <Link>
+`      <SubSystem>Windows</SubSystem>`
+`      <GenerateDebugInformation>true</GenerateDebugInformation>`
+`      <AdditionalDependencies>opencv_core2410d.lib;opencv_highgui2410d.lib;opencv_video2410d.lib;opencv_ml2410d.lib;opencv_legacy2410d.lib;opencv_imgproc2410d.lib;libtiff.lib;%(AdditionalDependencies)</AdditionalDependencies>`
+`    </Link>`
 
 ### 运行
 打开工程后点`F5`开始调试，或者使用无调试运行`Ctrl+F5`．

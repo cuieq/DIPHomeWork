@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0039)http://home.earthlink.net/~ritter/tiff/ -->
+<HTML><HEAD><TITLE>The Unofficial TIFF Home Page</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
+rev=made href="mailto:ritter@earthlink.net">
+<META content="MSHTML 6.00.2800.1276" name=GENERATOR></HEAD>
+<BODY>
+<HR>
+
+<H1 align=center>The Unofficial TIFF Home Page </H1>
+<HR>
+Last modified: Feb 14, 1997 
+<P>Author<A href="mailto:ritter@earthlink.net">mailto:ritter@earthlink.net</A>
+<HR>
+
+<H2>Contents: </H2>
+<OL>
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#whatis">What is TIFF?</A> 
+
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#shouldi">Should I use 
+  TIFF ?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#whoowns">Who owns 
+  TIFF?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#tags">How can I reserve 
+  my own tags/compression schemes?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#lists">Are there any TIFF 
+  mailing lists?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#spec">Where can I 
+  download the TIFF Specification?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#multi">What programs can 
+  read Multi-page TIFF?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#lzw">Is the LZW 
+  compression in TIFF patented?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#public">Where can I find 
+  Public TIFF Software ?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#extensions">What TIFF 
+  Extensions are Available?</A> 
+  <LI><A href="http://home.earthlink.net/~ritter/tiff/#otherpage">Other TIFF 
+  related Pages</A> </LI></OL>
+<P>
+<HR>
+
+<H2><A name=whatis>What is TIFF ? </A></H2>TIFF is an acronym for 
+<STRONG>T</STRONG>ag(ged) <STRONG>I</STRONG>mage <STRONG>F</STRONG>ile 
+<STRONG>F</STRONG>ormat. It is one of the most popular and flexible of the 
+current public domain raster file formats. etc. 
+<HR>
+
+<H2><A name=shouldi>Should I use TIFF ? </A></H2>It depends upon your particular 
+needs. 
+<P><STRONG>Limitations:</STRONG> There are no provisions in TIFF for storing 
+vector graphics, text annotation, etc (although such items could be easily 
+constructed using TIFF extensions), and so if this is a requirement you would be 
+better off with a format with broader scope, such as PostScript, CGM, or PICT. 
+TIFF is based on file-offsets, so that it is not easily "streamable" in the way 
+JPEG JFIF streams are. 
+<P>A common complaint of TIFF is rooted in its flexibility. For example the TIFF 
+format permits both MSB ("Motorola") and LSB ("Intel") byte order data to be 
+stored, with a header item indicating which order is used. There are old, poorly 
+written TIFF programs on the PC which rebelled against this and assume that all 
+TIFF files are Intel byte order. It is very easy to write a TIFF-writer, but 
+very difficult to write a fully TIFF compliant reader. 
+<P>TIFF uses 4-byte integer file offsets to store image data, with the 
+consequence that a TIFF file cannot have more than 4 Gigabytes of raster data 
+(and some files have begun to approach this boundary). However, this is 4G of 
+compressed data, and so if the compression ratio is high enough, theoretically a 
+TIFF image could be much larger (in fact, 2**32-1 pixels square). 
+<P><STRONG>Strengths:</STRONG> TIFF is primarily designed for 
+<STRONG>raster</STRONG> data <STRONG>interchange</STRONG>. It's main strengths 
+are a highly flexible and platform-independent format which is supported by 
+numerous image processing applications. Since it was designed by developers of 
+printers, scanners and monitors, it has a very rich space of information 
+elements for colorimetry calibration, gamut tables, etc. Such information is 
+also very useful for remote sensing and multispectral applications. 
+<P>Another feature of TIFF which is also useful is the ability to decompose an 
+image by <STRONG>tiles</STRONG> rather than scanlines. This permits much more 
+efficient access to very large imagery which has been compressed (since one does 
+not have to decompress an entire scanline). 
+<P>Theoretically, TIFF can support imagery with multiple bands (up to 64K 
+bands), arbitrary # bits per pixel, data cubes, and multiple images per file, 
+including thumbnail subsampled images. 
+<P>Color spaces supported include 
+<UL>
+  <LI>Grayscale 
+  <LI>Pseudocolor (any size) 
+  <LI>RGB 
+  <LI>YCbCr 
+  <LI>CMYK 
+  <LI>CIELab </LI></UL>Compression types include 
+<UL>
+  <LI>raw uncompressed, 
+  <LI>PackBits 
+  <LI>Lempel-Ziv-Welch (LZW) 
+  <LI>CCITT Fax 3 &amp; 4 
+  <LI>JPEG (see below) </LI></UL>Pixel formats supported include: 
+<UL>
+  <LI>1-64 bit integer, signed or unsigned 
+  <LI>32 or 64 bit IEEE floating point </LI></UL>
+<P>
+<HR>
+
+<H2><A name=whoowns>Who owns TIFF? </A></H2>TIFF was developed by Aldus and 
+Microsoft Corp, and the specification was owned by Aldus, which in turn merged 
+with <A href="http://www.adobe.com/">Adobe Systems, Incorporated</A>. 
+Consequently, Adobe Systems now holds the Copyright for the TIFF specification. 
+<P>TIFF is a trademark, formerly registered to Aldus, and which is now claimed 
+(though not yet registered) by Adobe Systems, Inc. 
+<P>
+<HR>
+
+<H2><A name=tags>How can I reserve my own tags/compression schemes? </A></H2>
+<P>TIFF tag and TIFF compression ID registration is handled by Adobe Developer 
+Relations. Please send your requests to Adobe developer relations support staff 
+at: <PRE>    <A href="mailto:gapdevsup@adobe.com">gapdevsup@adobe.com</A>
+</PRE>Adobe needs the following information to assign a TIFF tag or compression 
+code: <PRE>Company Name:
+Contact Name:
+Address:
+Phone:
+Fax:
+Email:
+Brief description of tag format (optional, see below):
+
+
+
+</PRE>It is their policy not to divulge information about TIFF tag owners or the 
+format of private tag data without the owner's consent. If you wish to make 
+public the fact that you are the owner of a tag and/or details about a tag's 
+layout, you can send them this information and they will store it in their TIFF 
+registration database. 
+<P>
+<HR>
+
+<H2><A name=lists>Are there any TIFF Mailing lists? </A></H2>Yes, the main TIFF 
+mailing list is maintained at SGI; to subscribe, send email with the following 
+subject and message body: 
+<P><PRE> 	To: <A href="mailto:tiff-request@olympiakos.com">tiff-request@olympiakos.com</A>
+	Subject: none
+
+        subscribe tiff
+
+</PRE>(optionally, after "subscribe tiff" you may place an email address). You 
+will receive a confirmation from the Majordomo listserver running there. To post 
+messages, send email to <A 
+href="mailto:tiff@olympiakos.com">tiff@olympiakos.com</A>. 
+<P>There is also a mailing list for discussing the <A 
+href="http://home.earthlink.net/~ritter/geotiff/geotiff.html">GeoTIFF</A> TIFF 
+tag extensions for georeferenced raster data, which can be accessed by sending 
+email: 
+<P><PRE> 	To: <A href="mailto:geotiff-request@mtmorrison.jpl.nasa.gov">geotiff-request@mtmorrison.jpl.nasa.gov</A>
+	Subject: none
+
+        subscribe geotiff Your-Name-Here
+</PRE>An <A 
+href="http://www.pci.on.ca/~warmerda/geotiff/maillist.html">archive</A>. of the 
+ongoing GeoTIFF list discussion is now available. 
+<P>
+<HR>
+
+<H2><A name=spec>Where can I download the TIFF Specification? </A></H2>The 
+online PDF formatted <A 
+href="http://partners.adobe.com/asn/developer/PDFS/TN/TIFF6.pdf">TIFF 6.0 
+Specification</A> is available from Adobe in their <A 
+href="http://partners.adobe.com/asn/developer/technotes.html">Technical Notes 
+for Developers</A> Section; you will need an <A 
+href="http://www.adobe.com/prodindex/acrobat/readstep.html">Adobe Acrobat Viewer 
+</A>to read this, also freely available from Adobe. 
+<P>A compressed <A 
+href="ftp://ftp.sgi.com/graphics/tiff/TIFF6.ps.Z">PostScript</A> version of the 
+spec is available from the SGI TIFF archive, which also has an <A 
+href="ftp://ftp.sgi.com/graphics/tiff/TIFF6.ps">uncompressed version</A>. 
+<P>Older Revision Specs are also online (for historians, only!): 
+<P><TAB INDENT="6"><A 
+href="http://palimpsest.stanford.edu/bytopic/imaging/std/tiff4.html">Revision 
+4.0 </A>
+<P><A 
+href="http://palimpsest.stanford.edu/bytopic/imaging/std/tiff5.html">Revision 
+5.0 </A>
+<P>
+<HR>
+
+<H2><A name=multi>What programs can read Multi-page TIFF?</A></H2>Here are some 
+programs that have been used by readers of the TIFF mailing list: 
+<P>
+<UL>
+  <LI><A href="ftp://ftp.sgi.com/sgi/fax/contrib/viewfax/">ViewFax (for X 
+  Windows)</A> 
+  <LI><A href="http://www.hp.com/">Hewlett Packard "imageview" (included with 
+  HP-UX)</A> 
+  <LI><A href="http://www.ndg.com/">Northern Development Group "SwiftView" 
+  (multi-platform)</A> 
+  <LI><A href="http://www.spicer.com/">Spicer "Imagenation" (multi-platform)</A> 
+
+  <LI><A href="http://www.tdfcorp.com/">TDF Corporation "Personal Image Edition" 
+  (Win &amp; OS/2)</A> 
+  <LI><A href="http://www.tmsinc.com/solution.htm">TMS Sequoia 
+  (multi-platform)</A> 
+  <LI><A href="http://www.wang.com/sbu/image95.htm">Microsoft/Wang "Imaging for 
+  Windows" (Win95 &amp; WinNT)</A> 
+  <LI><A href="http://www.qms.com/www/products/crownimage/crownimage.html">Crown 
+  Image</A> 
+  <LI><A href="http://www.visioneer.com/">Visioneer PaperPort (Win &amp; 
+  Mac)</A> 
+  <LI><A href="http://www.cerious.com/">Cerious ThumbsPlus (Win only) 
+</A></LI></UL>
+<P>
+<HR>
+
+<H2><A name=lzw>Is the LZW Compression in TIFF patented? </A></H2>
+<UL>Yep; <A href="http://www.unisys.com/">Unisys</A> holds a patent on the 
+  compression algorithm, which is the same as the one used in Compuserve's GIF 
+  format. For more information, see the <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/graphics/fileformats-faq/faq-doc-33.html">Graphics 
+  File Format FAQ</A> entry, which has further details and pointers to the 
+  patents and licensing agreements. 
+  <P>See also the <A 
+  href="http://home.earthlink.net/~ritter/tiff/#extensions">"Extensions"</A> 
+  section on the freeware "Zip-in-TIFF" alternative proposed. </P></UL>
+<HR>
+
+<H2><A name=public>Where can I find Public TIFF Software ? </A></H2>
+<HR>
+
+<H3>TIFF Libraries and Source Code</H3>
+<H4>LIBTIFF </H4>
+<UL><A href="mailto:sam@errno.com">Sam Leffler </A>has written a 
+  platform-independent, public-domain subroutine library and tool-set for TIFF 
+  files, called "libtiff". 
+  <P>The <A href="http://www.libtiff.org/">LIBTIFF.ORG</A> Page for the libtiff 
+  package is here. 
+  <P>Unix-style <A href="http://home.earthlink.net/~ritter/tiff/man/">manual 
+  pages </A>for the suboutines and utilities are also now online. 
+  <P>There is a hacked version of Libtiff for Windows-flavored compilers, 
+  allowing the creation of DLL's, and is called <A 
+  href="ftp://ftp.daimi.aau.dk:pub/pub/pc/tiff/Readme">LIBTIFFW</A>. The 
+  cognizant programmer is <A href="mailto:pingel@daimi.aau.dk">Soren Pingel 
+  Dalsgaard</A>. </P></UL>
+<H4>LIBTIFF </H4>
+<UL><A href="ftp://oak.oakland.edu/SimTel/msdos/graphics/tif25640.zip">TIFF256 
+  Graphics Library</A> is a shareware, licensable TIFF library supporting TIFF 
+  5.0 (the latest rev is 6.0). Don't know much about it. </UL>
+<H3>WOCAR: Optical Character Recognition (OCR) for TIFF</H3>
+<UL><A 
+  href="http://www.simtel.net/pub/simtelnet/win95/graphics/wocar20.zip">WOCAR</A> 
+  is an Optical Characters Recognition Application (OCR). It converts scanned 
+  documents to text documents. The software can process documents written in 
+  English or in French. WOCAR can work with any scanner that supports the TWAIN 
+  interface. It can also process any bilevel TIFF image file. (multipage TIFF 
+  files are supported) This application works on Windows 95 and Windows NT, and 
+  is also availabe at the <A 
+  href="ftp://ftp.simtel.net/pub/simtelnet/win95/graphics/wocar20.zip">Simtelnet 
+  FTP site</A>. The author of this package is <A 
+  href="mailto:cambien@francenet.fr">Cyril Cambien</A>, who also has his own <A 
+  href="http://persoweb.francenet.fr/~cambien">web page</A>. </UL>
+<H3>ImTool package</H3>
+<UL>The <A href="http://blondie.lbl.gov/software/imtools.html">ImTools</A> 
+  converter put out by the San Diego Supercomputer Center claims to be able to 
+  handle "many tiff formats that others can't". Try it out and let me know. </UL>
+<H3>SimTel package</H3>
+<UL><A href="ftp://oak.oakland.edu/SimTel/msdos/tiff/">SimTel TIFF package</A> 
+  Software, source code, etc available, primarily for MS-DOS platforms. It 
+  includes the original TIFF library put out by Aldus, and looks to be rather 
+  outdated, and unlikely to support TIFF 6.0 additions, such as tiling. </UL>
+<HR>
+
+<H3>Comp.Graphics Archives</H3>
+<UL>The <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/bngusenet/comp/graphics/top.html">Usenet 
+  Comp.Graphics FAQ files</A> is an excellent resource for finding TIFF viewers, 
+  converters, etc. Discussions arising in the <B>comp.graphics.*</B> newsgroups 
+  about pros and cons for other formats, the "LZW" patent issues, etc are also 
+  included. In particular the section on <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/graphics/fileformats-faq/part2/faq.html">Image 
+  Conversion and Display</A> programs is very useful. Most of the references 
+  below are extracted from this reference. 
+  <P><!--
+There is also a SmartPages version of the
+<a href="http://www.smartpages.com/faqs/graphics/top.html">
+Graphics FAQ's</a>, including the  
+<a href="http://www.smartpages.com/faqs/graphics/fileformats-faq/faq.html">
+File Format FAQ</a>.--></P></UL>
+<HR>
+
+<H3>Viewers and Editors </H3>
+<H4>Macintosh </H4>
+<UL>One of the best public-domain TIFF viewers for the mac is also a very nice 
+  image-processing system in its own right, called <A 
+  href="ftp://zippy.nimh.nih.gov/pub/nih-image/">NIH Image</A>. It now supports 
+  Adobe Photoshop plug-ins as well, and can display most garden-variety TIFF 
+  files, though older versions had problems with "tiled" TIFF images. And yes, 
+  it will handle 16-bit grayscale TIFF, if need be. It is limited to 8-bit color 
+  display, but given a 24-bit RGB it will allow you to edit the color planes 
+  separately, and view "palettized" version of the color data. Pascal Source 
+  code for Metrowerks CW7 or later is also available for hacking. </UL>
+<P>
+<H4>Unix Boxes/X </H4>
+<UL><A 
+  href="ftp://export.lcs.mit.edu/contrib/applications/ImageMagick/">ImageMagick</A> 
+  can open most TIFF files, and do some annotation, using the standard X-window 
+  interface. It is in the public domain. 
+  <P><A href="ftp://ftp.cis.upenn.edu/pub/xv/">XV</A> Viewer by John Bradley is 
+  a very nice display program, which has some nice editing features, and a 
+  "Visual Schauzer" which provides a icon/desktop view of a directory, with 
+  thumbnails, etc. Note, however, that the most recent versions are *NOT* public 
+  domain, but must be licensed. The source code is also available, and it uses 
+  the "libtiff" package. 
+  <P>See also the <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/graphics/fileformats-faq/part2/faq-doc-9.html">Unix 
+  and X-windows</A> entry of the comp.graphics FAQ archive. </P></UL>
+<H4>PC/DOS/Windows Flavored Systems </H4>
+<UL>I don't have any personal experience with these systems, but your best bet 
+  is to refer to the <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/graphics/fileformats-faq/part2/faq-doc-6.html">MS-DOS 
+  Image Viewers</A> or the <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/graphics/fileformats-faq/part2/faq-doc-7.html">Windows 
+  and OS/2</A> entries of the comp.graphics FAQ archives. Note, however, that 
+  some of the links are out of date. 
+  <P>There are a lot of TIFF programs in the <A 
+  href="ftp://oak.oakland.edu/SimTel/">SimTel</A> archives: 
+  <P>
+  <UL>
+    <LI><A 
+    href="ftp://oak.oakland.edu/SimTel/msdos/graphics/imagepro.zip">imagepro.zip</A> 
+    basic image processing with TIFF, etc. 
+    <LI><A 
+    href="ftp://oak.oakland.edu/SimTel/msdos/graphics/grfwk70e.zip">Graphic 
+    Workshop</A> can convert and display TIFF. <!--ftp://ftp.leo.org/pub/comp/networking/communication/modem/mgetty/viewfax-2.2.tar.gz--></LI></UL></UL>
+<HR>
+
+<H2><A name=extensions>What TIFF Extensions are Available? </A></H2>TIFF is a 
+very extensible format, and there are a number of efforts to extend TIFF for 
+specific applications by registering new tags with Adobe. A number of such 
+extensions are described below: 
+<H3>GeoTIFF </H3>
+<UL><A 
+  href="http://home.earthlink.net/~ritter/geotiff/geotiff.html">GeoTIFF</A> is a 
+  newly emerging interchange standard, which permits the addition of Geographic 
+  information such as projections, datums, etc, associated with remote sensing 
+  or cartographic raster data. </UL>
+<P>
+<H3>Adobe Extensions for PageMaker </H3>
+<UL>Adobe has recently defined a set of <A 
+  href="http://www.adobe.com/supportservice/devrelations/PDFS/TN/TIFFPM6.pdf">extensions 
+  </A>to the TIFF spec, allowing for "clipping-path" definitions, etc. </UL>
+<P>
+<H3>JPEG - in - TIFF </H3>
+<UL>Another effort involves the encapsulation of a decent lossy JPEG stream 
+  within TIFF; the original 6.0 spec was not worked out correctly. Tom Lane led 
+  the development of the new TIFF implementation called <A 
+  href="ftp://ftp.sgi.com/graphics/tiff/TTN2.draft.txt">JPEG-in-TIFF. </A>The 
+  current <A href="http://home.earthlink.net/~ritter/tiff/#public">libtiff</A> 
+  package offers some level of JPEG support, when linked with the IJG JPEG 
+  library, available at <A 
+  href="ftp://ftp.uu.net/graphics/jpeg/">ftp://ftp.uu.net/graphics/jpeg/</A> (if 
+  you can ever get in), or at <A 
+  href="ftp://ftp.cs.wisc.edu/ghost/">ftp://ftp.cs.wisc.edu/ghost/</A>. See also 
+  Tom Lane's <A 
+  href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/jpeg-faq/top.html">JPEG 
+  Frequently Asked Questions</A> file. </UL>
+<P>
+<H3>Zip - in - TIFF </H3>
+<UL>The best lossless compression scheme in TIFF currently is LZW (Lempel Ziv 
+  Welch), which, unfortunately, suffers from the same <A 
+  href="http://home.earthlink.net/~ritter/tiff/#lzw">Unisys</A> patent problems 
+  as the popular "GIF" format. For this reason, an alternative, non-proprietary 
+  compression scheme has been proposed, based on the <A 
+  href="ftp://ftp.uu.net/graphics/png/documents/zlib/zdoc-index.html">ZLIB/Deflation</A> 
+  stream. The current <A 
+  href="http://home.earthlink.net/~ritter/tiff/#public">libtiff</A> package 
+  offers some level of Zip support, when linked with the zlib library, available 
+  at the <A 
+  href="ftp://ftp.uu.net/pub/archiving/zip/zlib/">ftp://ftp.uu.net/pub/archiving/zip/zlib/</A> 
+  archives, the. <A 
+  href="ftp://www-dsed.llnl.gov/files/programs/UNIX/">www-dsed.llnl.gov</A> 
+  archives, and the <A 
+  href="ftp://swrinde.nde.swri.edu/pub/png/src/">swrinde.nde.swri.edu</A> 
+  archive (in Zip format). The current version level is 1.0.4, as of 21 
+  November, 1996. 
+  <P>On a related note, see also the <A 
+  href="http://quest.jpl.nasa.gov/PNG/">PNG (Portable Network Graphics)</A> Web 
+  page, for another format using Zip and zlib. 
+  <P><B>Caveat:</B> the Zip-TIFF approach has not been adopted widely, as yet. 
+  However, Adobe technical support has expressed the intention to include it in 
+  the next TIFF 7.0 specification (to be released Real Soon Now (TM)). </P></UL>
+<P>
+<H3>TIFF Class F Revised Specification </H3>
+<UL>The <A 
+  href="http://palimpsest.stanford.edu/bytopic/imaging/std/tiff-f.html">TIFF 
+  Class F Revised Specification </A>documents the TIFF spec tags specific to FAX 
+  applications. <A 
+  href="http://www.cis.ohio-state.edu/htbin/rfc/rfc804.html">RFC 804</A> covers 
+  the RFC on the CCITT Recommendation T.4 which explains CCITT Group 3 encoding 
+  and the Modified Huffman and Modified Read compression algorithms. 
+  <P>See also the <A href="http://www.faximum.com/w3vlib/fax">Facsimile (Fax) 
+  SubSection </A>of the <A 
+  href="http://www.w3.org/hypertext/DataSources/bySubject/Overview.html">WWW 
+  Virtual Library</A> for more information. 
+  <P>TIFF Fax Viewers are available at: 
+  <UL>
+    <LI><A 
+    href="ftp://ftp.leo.org/pub/comp/networking/communication/modem/mgetty/">ftp://ftp.leo.org/pub/comp/networking/communication/modem/mgetty/</A> 
+    (look for "viewfax"). </LI></UL></UL>
+<H3>TIFF/IT Prepress Interchange Standard</H3>
+<UL>The <A href="http://www2.echo.lu/oii/en/raster.html">Raster Graphic 
+  Interchange Standards </A>page has a link to information on <A 
+  href="http://www2.echo.lu/oii/en/raster.html#TIFF-IT">TIFF/IT</A> standard for 
+  prepress applications. 
+  <P>Note: <B>TIFF/IT</B> = Transport Independent File Format for Image 
+  Technology. 
+  <P>It is intended that the TIFF/IT standard will reduce the variation between 
+  TIFF implementations which has led to a reputation of valid TIFF files often 
+  being unreadable when transferred between different applications. 
+  <P>The TIFF/IT spec is available from the ANSI standards organization or NPES, 
+  the association of suppliers of printing and publishing technologies. It is 
+  ANSI standard IT8.8-1993 'Tag image format for image technology' NPES's phone 
+  number in the United States is (703) 264-7200. 
+  <P></P></UL>
+<H3>TIFF enhancements for Adobe PageMaker 6.0 </H3>
+<UL>This <A 
+  href="http://www.adobe.com/supportservice/devrelations/PDFS/TN/TIFFPM6.pdf">Technical 
+  Note </A>includes new TIFF tags for supporting such things as TIFF directory 
+  "Trees" (as opposed to the singly-linked list of IFD's), defining polygonal 
+  "clipping paths" (ala PostScript), indexed ("palette") images for other color 
+  spaces such as CMYK, and a definition of the new ICC L*a*b* color space. 
+  <P></P></UL>
+<H3>RichTIFF</H3>
+<UL>The <A 
+  href="http://home.earthlink.net/~ritter/tiff/richtiff.html">RichTIFF</A> 
+  standard was defined by <B>Crosfield</B> , now maintained by ITPC, and was 
+  designed primarily for newsphoto interchange. RichTIFF is not really a 
+  standard format, but rather a guideline on how to format TIFF files for this 
+  purpose. 
+  <P></P></UL>
+<H3>Wang TIFF Image-Annotation extensions </H3>
+<UL>Wang has developed some <A href="http://www.wang.com/sbu/anno_02.htm">tag 
+  extensions</A> for TIFF files, including post-it notes etc. It is very Wintel 
+  specific, but you may find it useful. </A></UL>
+<H3>Kodak TIFF extensions </H3>
+<UL>Kodak has several file formats in use which are more or less based on the 
+  TIFF spec (though not always complying with the strict rules). The Kodak 
+  Professional Digital Camera System produces a file with TIFF header and 
+  multiple IFD's of various types, and there is also a "KIFF" (Kodak Image File 
+  Format) based on TIFF with proprietary colorspace and compression methods (the 
+  use of which changes their name to "KIC" - Kodak Image Compression - files. 
+  For more information contact <A href="http://www.kodak.com/">Kodak</A> 
+  directly. 
+  <P></P></UL>
+<H3>Internet RFC's Related to TIFF</H3>
+<UL>RFC 804</A> covers the RFC on the CCITT Recommendation T.4 which explains 
+  CCITT Group 3 encoding and the Modified Huffman and Modified Read compression 
+  algorithms. (Group 4 is detailed in CCITT Recommendation T.6). 
+  <P><A href="http://andrew2.andrew.cmu.edu/rfc/rfc1314.html">RFC 1314</A> 
+  concerns suggested standards for using TIFF for document interchange on the 
+  Internet. The standard is compared with the "TIFF Class F" fax scheme. </P></UL>
+<UL></UL></A>
+<HR>
+
+<H2><A name=otherpage>Other TIFF Related Pages</A></H2>
+<UL>
+  <P><A href="http://www-dsed.llnl.gov/documents/tests/tiff.html">TIFF Online 
+  Test Images</A>. If you have a TIFF viewer linked to your Web Browser, you can 
+  test it on these images. Sources for TIFF viewers is also provided. 
+  <P></P></UL>
+<HR>
+Last modified: Feb 14, 1997 
+<ADDRESS>Comments? e-mail <A 
+href="mailto:ritter@earthlink.net">mailto:ritter@earthlink.net</A></ADDRESS>
+<HR>
+</BODY></HTML>
